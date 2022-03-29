@@ -4,7 +4,7 @@ on:
     branches:
       - master
 jobs:
-  build:
+  test-checkov:
 
     runs-on: ubuntu-latest
     steps:
@@ -21,8 +21,11 @@ jobs:
           framework: terraform 
           api-key: ${{secrets.BRIDGECREW_API_KEY}}
       - uses: actions/checkout@master
-      
-      - name: Test with Checkov
+  test-snyk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test with Snyk
       - uses: snyk/actions/setup@master
       - uses: actions/setup-go@v1
       - uses: actions/checkout@master
