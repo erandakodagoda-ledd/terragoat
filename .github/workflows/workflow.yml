@@ -19,3 +19,4 @@ jobs:
         with:
           directory: terragoat/terraform/azure/
           framework: terraform 
+          api-key: ${{secrets.BRIDGECREW_API_KEY}}
