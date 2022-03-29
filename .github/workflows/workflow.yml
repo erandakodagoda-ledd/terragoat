@@ -1,4 +1,4 @@
-name: Checkov
+name: Checkov and Snyk Vulnerability Scan
 on:
   push:
     branches:
@@ -20,4 +20,10 @@ jobs:
           directory: terraform/azure/
           framework: terraform 
           api-key: ${{secrets.BRIDGECREW_API_KEY}}
-          
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: monitor          
