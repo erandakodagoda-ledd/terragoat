@@ -13,14 +13,13 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: 3.8
-#       - name: Test with Checkov
-#         id: checkov
-#         uses: bridgecrewio/checkov-action@v12.1347.0
-#         with:
-#           directory: terraform/azure/
-#           framework: terraform 
-#           api-key: ${{secrets.BRIDGECREW_API_KEY}}
-#       - uses: actions/checkout@master
+      - name: Test with Checkov
+        id: checkov
+        uses: bridgecrewio/checkov-action@v12.1347.0
+        with:
+          directory: terraform/azure/
+          framework: terraform 
+          api-key: ${{secrets.BRIDGECREW_API_KEY}}
       - uses: actions/checkout@master
       - uses: snyk/actions/setup@master
       - uses: actions/setup-go@v1
