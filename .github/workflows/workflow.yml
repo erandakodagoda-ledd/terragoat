@@ -27,6 +27,6 @@ jobs:
         with:
           go-version: '1.13'
       - name: Snyk monitor
-        run: snyk test
+        run: snyk iac test
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}          
